@@ -15,7 +15,8 @@ app = FastAPI()
 ocr = PaddleOCR(use_angle_cls=True, lang='en')
 
 def extract_text_from_pdf(file: UploadFile):
-    images = convert_from_path(BytesIO(file.file.read()))
+    pdf_bytes = file.file.read()
+    images = convert_from_bytes(pdf_bytes)
     full_text = ""
 
     for image in images:
@@ -25,8 +26,8 @@ def extract_text_from_pdf(file: UploadFile):
                 text = word_info[-1][0]
                 full_text += text + " "
         full_text += "\n"
-
     return full_text.strip()
+
 
 
 def extract_triples(text, llm_api_url):
