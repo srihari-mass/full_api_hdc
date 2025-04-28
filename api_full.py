@@ -40,7 +40,7 @@ Rules:
             {"role": "user", "content": text}
         ],
         "temperature": 0.0,
-        "max_tokens": 12000,
+        "max_tokens": 22000,
         "top_p": 1,
         "frequency_penalty": 0,
         "presence_penalty": 0
