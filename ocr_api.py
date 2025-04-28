@@ -25,8 +25,6 @@ def extract_text_from_pdf(file: UploadFile):
 @app.post("/process")
 async def process(
     file: UploadFile = File(...),
-    llm_api_url: str = Form(...),
-    desc_api_url: str = Form(...)
 ):
     try:
         text = extract_text_from_pdf(file)
